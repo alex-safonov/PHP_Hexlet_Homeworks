@@ -315,3 +315,70 @@ function isArgumentsForSubstrCorrect($str, $index, $lenghtStr)
 }
 // END
 ============================================================
+         
+
+Реализуйте функцию sumOfSeries(), которая считает сумму ряда целых чисел. 
+Ряд задаётся двумя числами — начальным и конечным.
+
+Функция принимает два аргумента-числа и возвращает сумму ряда. 
+Например, для аргументов 4 и 7 сумма будет 4 + 5 + 6 + 7 = 22. 
+Если начальное и конечное числа равны, то результатом будет то же число
+
+
+namespace App\Solution;
+
+// BEGIN (write your solution here)
+function sumOfSeries($num1, $num2)
+{
+    $result = 0;
+    for ($i = $num1; $i <= $num2; $i += 1) {
+        $result += $i; 
+    }
+    return $result;
+}
+// END
+============================================================
+
+
+
+Допишите реализацию функции invertCase(), которая инвертирует регистр каждого символа в переданной строке.
+
+<?php
+ 
+$str = 'ПрИвЕт!';
+invertCase($str); // пРиВеТ!
+
+namespace App\Solution;
+
+function invertCase($text)
+{
+    $result = '';
+    for ($i = 0; $i < mb_strlen($text); $i += 1) {
+        
+        if (mb_substr($text, $i, 1) == mb_strtoupper(mb_substr($text, $i, 1))){    
+
+            $t = mb_strtolower((mb_substr($text, $i, 1)));
+            $result = "{$result}{$t}"; 
+        }
+        else {
+            $t = mb_strtoupper(mb_substr($text, $i, 1));
+            $result = "{$result}{$t}";
+        }
+    }
+    return $result;
+}
+============================================================
+
+Реализуйте функцию getCustomDate(), которая принимает дату в формате timestamp 
+и возвращает её в формате 15/03/1985.
+
+namespace App\Solution;
+
+// BEGIN (write your solution here)
+function getCustomDate ($mkt)
+{
+    return date('d/m/Y', $mkt);
+}
+// END
+
+============================================================
